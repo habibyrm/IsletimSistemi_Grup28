@@ -1,9 +1,9 @@
 Grup:28
 Habibe Bayram 
-Fatma Selma Akpýnar
+Fatma Selma AkpÄ±nar
 Eren Sancar
-Ömer Elmas
-Þule Yýlmaz
+Ã–mer Elmas
+Åžule YÄ±lmaz
 
 
 This is my first contribution
