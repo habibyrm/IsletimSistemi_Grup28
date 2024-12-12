@@ -1,0 +1,9 @@
+# Visual Studio temporary files
+.vs/
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+*.ipch
+*.suo
+*.user
+*.log
