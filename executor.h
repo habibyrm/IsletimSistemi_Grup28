@@ -1,15 +1,22 @@
+/*Grup:28
+Habibe Bayram
+Fatma Selma Akpýnar
+Eren Sancar
+Ömer Elmas
+Þule Yýlmaz
+*/
 // executor.h
-// Header file for command execution functionality.
+// Komut çalýþtýrma iþlevleri için baþlýk dosyasý.
 
 #ifndef EXECUTOR_H
 #define EXECUTOR_H
 
 #include "command_parser.h"
 
-// Execute a single command
+// Tek bir komutu çalýþtýrýr.
 void execute_command(Command cmd);
 
-// Execute a pipeline of commands
-void execute_pipe(Command *commands, int num_commands);
+// Borulu (pipe) komutlarý çalýþtýrýr.
+void execute_pipe(Command* commands, int num_commands);
 
 #endif

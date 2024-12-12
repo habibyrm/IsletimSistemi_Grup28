@@ -1,3 +1,9 @@
+#Grup:28
+#Habibe Bayram 
+#Fatma Selma Akpýnar
+#Eren Sancar
+#Ömer Elmas
+#Þule Yýlmaz
 # Makefile
 # Build file for the custom shell project.
 

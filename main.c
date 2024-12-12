@@ -1,5 +1,12 @@
+/*Grup:28
+Habibe Bayram
+Fatma Selma Akpýnar
+Eren Sancar
+Ömer Elmas
+Þule Yýlmaz
+*/
 // main.c
-// Entry point for the custom shell application.
+// Kabuk uygulamasýnýn giriþ noktasý.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,37 +19,39 @@
 
 #define MAX_INPUT 1024
 
-// Display the shell prompt
+// Komut istemini ekrana yazdýrýr.
 void display_prompt() {
     printf("> ");
-    fflush(stdout);
+    fflush(stdout); // Çýktý tamponunu temizler.
 }
 
 int main() {
     char input[MAX_INPUT];
     display_prompt();
-    
+
+    // Kullanýcý giriþini sürekli okur.
     while (fgets(input, MAX_INPUT, stdin)) {
-        // Remove newline character
+        // Yeni satýr karakterini temizler.
         input[strcspn(input, "\n")] = 0;
 
-        // Exit if the user enters "quit"
+        // Kullanýcý "quit" yazarsa çýkýþ yapar.
         if (strcmp(input, "quit") == 0) {
-            printf("Exiting shell...\n");
+            printf("Kabuk kapatýlýyor...\n");
             break;
         }
 
-        // Parse the user input into a command structure
+        // Kullanýcý girdisini komut yapýsýna dönüþtürür.
         Command cmd = parse_command(input);
         if (cmd.is_pipe) {
-            // Handle piped commands
+            // Borulu (pipe) komutlarý iþler.
             execute_pipe(cmd.piped_commands, cmd.num_piped_commands);
-        } else {
-            // Execute a single command
+        }
+        else {
+            // Tek bir komutu çalýþtýrýr.
             execute_command(cmd);
         }
 
-        // Free allocated memory for the command
+        // Komut için ayrýlmýþ belleði serbest býrakýr.
         free_command(cmd);
         display_prompt();
     }
