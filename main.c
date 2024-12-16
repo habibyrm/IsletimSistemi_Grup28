@@ -29,6 +29,7 @@ int main() {
     char input[MAX_INPUT];
     display_prompt();
 
+
     // Kullanýcý giriþini sürekli okur.
     while (fgets(input, MAX_INPUT, stdin)) {
         // Yeni satýr karakterini temizler.
