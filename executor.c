@@ -40,7 +40,6 @@ void execute_pipe(Command* commands, int num_commands) {
         }
     }
 }
-
 // Tek bir komutu çalýþtýrýr.
 void execute_command(Command cmd) {
     pid_t pid = fork();
@@ -84,4 +83,5 @@ void execute_command(Command cmd) {
     else {
         perror("Fork hatasý");
     }
+
 }
