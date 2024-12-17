@@ -20,7 +20,7 @@ Command parse_command(const char* input) {
 
     // Komut adı
     cmd.name = strdup(token);
-    cmd.args = malloc(sizeof(char*) * 10); // Maksimum 10 argüman
+    cmd.args = malloc(sizeof(char*) * 10); // Max 10 argüman
     int i = 0;
 
     while (token != NULL) {
@@ -49,7 +49,7 @@ Command parse_command(const char* input) {
     cmd.args[i] = NULL;
 
     if (cmd.is_pipe) {
-        cmd.piped_commands = malloc(sizeof(Command) * 10); // Maksimum 10 borulu komut
+        cmd.piped_commands = malloc(sizeof(Command) * 10); // Max 10 borulu komut
         char* pipe_segment = strtok(input, "|");
         int j = 0;
         while (pipe_segment != NULL) {
