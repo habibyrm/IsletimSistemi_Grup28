@@ -70,15 +70,19 @@ void free_command(Command cmd) {
     for (int i = 0; cmd.args[i] != NULL; i++) {
         free(cmd.args[i]); // Her bir argüman için ayrılmış belleği serbest bırakır.
     }
-    free(cmd.args);
+
+    free(cmd.args); // Argüman dizisinin (args) kendisi için ayrılmış belleği serbest bırakır.
+
     if (cmd.input_file) free(cmd.input_file);
+
     if (cmd.output_file) free(cmd.output_file);
+
     if (cmd.is_pipe) {
-        // Borulu komutların her biri için belleği serbest bırakır.
+
         for (int i = 0; i < cmd.num_piped_commands; i++) {
-            free_command(cmd.piped_commands[i]);
+            free_command(cmd.piped_commands[i]); // Borulu komutların her biri için belleği serbest bırakır.
         }
-        // Borulu komutları tutan dizinin belleğini serbest bırakır.
-        free(cmd.piped_commands);
+
+        free(cmd.piped_commands); // Borulu komutları tutan dizinin belleğini serbest bırakır.
     }
 }

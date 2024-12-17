@@ -48,11 +48,10 @@ int main() {
             
         else 
             execute_command(cmd); // Tek bir komutu çalýþtýrýr.
-            
         
 
-        // Komut için ayrýlmýþ belleði serbest býrakýr.
-        free_command(cmd);
+        
+        free_command(cmd); // Komut için ayrýlmýþ belleði serbest býrakýr.
         display_prompt();
     }
     return 0;
