@@ -71,17 +71,16 @@ void execute_command(Command cmd) {
         exit(1);
     }
     else if (pid > 0) {
-        if (cmd.is_background) {
+        if (cmd.is_background) 
             printf("[Arkaplan] PID: %d çalýþýyor\n", pid);
-        }
+        
         else {
             int status;
             waitpid(pid, &status, 0);
             printf("Komut durum kodu: %d\n", WEXITSTATUS(status));
         }
     }
-    else {
+    else
         perror("Fork hatasý");
-    }
 
 }

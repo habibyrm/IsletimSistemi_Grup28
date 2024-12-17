@@ -64,17 +64,21 @@ Command parse_command(const char* input) {
 }
 
 void free_command(Command cmd) {
-    free(cmd.name);
+    free(cmd.name); // Komut adını tutan belleği serbest bırakır.
+
+    // Komut argümanlarını (args dizisini) dolaşarak, her bir argümanın belleğini serbest bırakır.
     for (int i = 0; cmd.args[i] != NULL; i++) {
-        free(cmd.args[i]);
+        free(cmd.args[i]); // Her bir argüman için ayrılmış belleği serbest bırakır.
     }
     free(cmd.args);
     if (cmd.input_file) free(cmd.input_file);
     if (cmd.output_file) free(cmd.output_file);
     if (cmd.is_pipe) {
+        // Borulu komutların her biri için belleği serbest bırakır.
         for (int i = 0; i < cmd.num_piped_commands; i++) {
             free_command(cmd.piped_commands[i]);
         }
+        // Borulu komutları tutan dizinin belleğini serbest bırakır.
         free(cmd.piped_commands);
     }
 }

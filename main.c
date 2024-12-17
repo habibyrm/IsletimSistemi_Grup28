@@ -30,12 +30,12 @@ int main() {
     display_prompt();
 
 
-    // Kullanýcý giriþini sürekli okur.
+    // Kullanýcý giriþini devamlý olmak üzere okur.
     while (fgets(input, MAX_INPUT, stdin)) {
         // Yeni satýr karakterini temizler.
         input[strcspn(input, "\n")] = 0;
 
-        // Kullanýcý "quit" yazarsa çýkýþ yapar.
+        // Kullanýcý "quit" yazarsa döngüden çýkýþ yapar.
         if (strcmp(input, "quit") == 0) {
             printf("Kabuk kapatýlýyor...\n");
             break;
@@ -43,14 +43,13 @@ int main() {
 
         // Kullanýcý girdisini komut yapýsýna dönüþtürür.
         Command cmd = parse_command(input);
-        if (cmd.is_pipe) {
-            // Borulu (pipe) komutlarý iþler.
-            execute_pipe(cmd.piped_commands, cmd.num_piped_commands);
-        }
-        else {
-            // Tek bir komutu çalýþtýrýr.
-            execute_command(cmd);
-        }
+        if (cmd.is_pipe) 
+            execute_pipe(cmd.piped_commands, cmd.num_piped_commands); // Borulu (pipe) komutlarý iþler.
+            
+        else 
+            execute_command(cmd); // Tek bir komutu çalýþtýrýr.
+            
+        
 
         // Komut için ayrýlmýþ belleði serbest býrakýr.
         free_command(cmd);
